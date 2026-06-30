@@ -4,7 +4,7 @@
 
 ## 输出文件
 
-`resume/interview-qa.md`，必产物。
+`resume/interview-qa-<variant>.md`，必产物。`<variant>` 由 Step 0 版本确认决定（soe/internet/foreign）。批量模式每版各一份，不合并。foreign 版面试问答默认全英文。
 
 ## 标准分节（必守）
 

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{姓名}} · 简历 · Modern</title>
+<title>{{姓名}} · 简历 · 私企/互联网版</title>
 <style>
-  /* 模板：modern — 简洁蓝白、内容优先、无装饰图标。适用：科技/创业/产品/市场 */
+  /* 模板：internet — 私企/互联网版。简洁无衬线、内容优先、无装饰图标。适用：民营科技/互联网/创业 */
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
@@ -36,51 +36,84 @@
 <body>
 <div class="page">
 
-  <div class="name">{{姓名}}</div>
-  <div class="role">{{目标岗位}} · {{工作年限}}年经验</div>
-  <div class="contact">
-    <span>{{电话}}</span><span>{{邮箱}}</span><span>{{所在地}}</span><span>{{GitHub}}</span><span>{{LinkedIn}}</span>
-  </div>
+<!-- M1 基础信息 | 必含 | internet 技术岗必备 GitHub/作品集链接 -->
+<div class="name">{{姓名}}</div>
+<div class="role">{{目标岗位}} · {{工作年限}}年经验</div>
+<div class="contact">
+  <span>{{电话}}</span><span>{{邮箱}}</span><span>{{所在地}}</span><span>{{GitHub}}</span><span>{{作品集/LinkedIn}}</span>
+</div>
 
-  <div class="summary">
-    <!-- 填充：价值主张 1-3 行 -->
-    {{价值主张：主导过高并发支付系统，接口延迟优化 75%，支撑日均 50 万笔交易}}
-  </div>
+<!-- M2 职业摘要 | 必含 | internet 必含价值主张 + 量化；不超过 3 行 -->
+<div class="summary">
+  {{价值主张：主导过高并发支付系统，接口延迟优化 75%，支撑日均 50 万笔交易}}
+</div>
 
-  <h2>工作经历</h2>
-  <div class="entry">
-    <div class="entry-head">
-      <span><span class="title">{{职位}}</span> · <span class="org">{{公司}}</span></span>
-      <span class="date">{{起止时间}}</span>
-    </div>
-    <p class="entry-context">{{项目/业务上下文}}</p>
-    <ul>
-      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
-      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
-    </ul>
-  </div>
+<!-- M3 教育背景 | 必含 | internet 应届重点；社招可压到一行 -->
+<h2>教育背景</h2>
+<div class="edu">
+  {{学校}} · {{专业}} · {{学位}} · {{起止时间}}{{可选：GPA ≥3.5 才写 · 相关课程（应届/转行用）}}
+</div>
 
-  <h2>项目经历</h2>
-  <div class="entry">
-    <div class="entry-head">
-      <span><span class="title">{{项目名}} · {{角色}}</span></span>
-      <span class="date">{{起止时间}}</span>
-    </div>
-    <p class="entry-context">{{一句话项目描述}}</p>
-    <ul>
-      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
-    </ul>
+<!-- M4 工作/实习经历 | 必含 | internet STAR + 强动词 + 业务量化；应届写实习 -->
+<h2>工作经历</h2>
+<div class="entry">
+  <div class="entry-head">
+    <span><span class="title">{{职位}}</span> · <span class="org">{{公司}}</span></span>
+    <span class="date">{{起止时间}}</span>
   </div>
+  <p class="entry-context">{{项目/业务上下文}}</p>
+  <ul>
+    <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+    <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+  </ul>
+</div>
 
-  <h2>技能</h2>
-  <div class="skills">
-    <b>后端</b>：{{...}}<br>
-    <b>AI/LLM</b>：{{...}}<br>
-    <b>工程</b>：{{...}}
+<!-- M5 项目经历 | 必含 | internet 核心：项目上下文先行 + STAR + 业务影响数据 -->
+<h2>项目经历</h2>
+<div class="entry">
+  <div class="entry-head">
+    <span><span class="title">{{项目名}} · {{角色}}</span></span>
+    <span class="date">{{起止时间}}</span>
   </div>
+  <p class="entry-context">{{一句话项目描述：系统定位 + 核心用户 + 解决的业务问题}}</p>
+  <ul>
+    <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+  </ul>
+</div>
 
-  <h2>教育背景</h2>
-  <div class="edu">{{学校}} · {{专业}} · {{学位}} · {{起止时间}}</div>
+<!-- M6 竞赛/奖项/荣誉 | 可选 | internet 应届/算法岗可写；社招删除非强相关 -->
+<h2>竞赛与奖项</h2>
+<ul>
+  <li>{{奖项/竞赛名}} · {{级别}} · {{时间}} · {{简述}}</li>
+</ul>
+
+<!-- M7 实践/校园经历 | 可选 | internet 应届可写；社招删除 -->
+<h2>实践与校园经历</h2>
+<div class="entry">
+  <div class="entry-head">
+    <span><span class="title">{{职务}}</span> · <span class="org">{{组织}}</span></span>
+    <span class="date">{{起止时间}}</span>
+  </div>
+  <ul>
+    <li><b>{{强动词}}</b> {{动作 + 规模 + 结果}}</li>
+  </ul>
+</div>
+
+<!-- M8 出版物/论文 | 可选 | internet 仅科研岗写 -->
+<h2>出版物与论文</h2>
+<ul>
+  <li>{{作者列表}}. {{论文标题}}. {{期刊/会议, 年}}.</li>
+</ul>
+
+<!-- M9 专业技能 | 必含 | internet 技术栈分类为主 + 云认证/工具；含语言 -->
+<h2>专业技能</h2>
+<div class="skills">
+  <b>后端</b>：{{Go / Java / Python / Node.js 等}}<br>
+  <b>AI/LLM</b>：{{LangChain / RAG / 向量数据库等}}<br>
+  <b>工程</b>：{{K8s / Docker / Redis / Kafka / CI-CD 等}}<br>
+  <b>证书</b>：{{CKA / AWS 等云认证（可选）}}<br>
+  <b>语言</b>：{{CET-6 / 英语流利等}}
+</div>
 
 </div>
 </body>

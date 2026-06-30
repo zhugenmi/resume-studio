@@ -49,7 +49,7 @@
 跑完样例后 `resume/` 必含：
 - [ ] `resume.md`（含详尽/标准/一行三版本）
 - [ ] `resume-diagnosis.md`（含 before/after 对照）
-- [ ] `resume.html`（从 4 模板选一，modern 适合应届科技岗）
+- [ ] `resume.html`（从 3 模板选一，internet 适合应届科技岗）
 - [ ] `interview-qa.md`（7 节齐全，高危追问含"无量化如何应对""精通无证据如何应对"）
 - [ ] `jd-analysis.md`（提供了 JD，必含）
 

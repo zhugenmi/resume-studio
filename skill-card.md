@@ -1,5 +1,5 @@
 ## Description: <br>
-求职者简历评分诊断 + 落地引擎。100 分制评分（5 维度 + A+~F 等级），40+ 项审计清单，STAR 法则量化改写，强动词替换，目标 JD 差距分析矩阵 + 匹配度，ATS 友好性检查，HR 6 秒筛选视角反向校验，红旗识别（外包/玩具项目/跳槽/空窗），多格式导出（HTML/Markdown/LaTeX/PDF/Word × 4 模板），重写后再次评分验证提升，一页简历压缩，生成面试问答。 <br>
+面向求职者的简历制作、诊断与优化。支持三雇主版本（国企/银行、私企/互联网、外企），各有不同评分标准、审计项与红旗。100 分制评分（5 维度 + A+~F 等级，按版本权重偏移），40+ 项审计清单，STAR 法则量化改写，强动词替换，目标 JD 差距分析矩阵 + 匹配度，ATS 友好性检查，HR 6 秒筛选视角反向校验，红旗识别（外包/玩具项目/跳槽/空窗），多格式导出（HTML/Markdown/LaTeX/PDF/Word × 3 模板，外企版全英文），重写后再次评分验证提升，一页简历压缩，生成面试问答。 <br>
 
 This skill is ready for commercial/non-commercial use. <br>
 
@@ -33,10 +33,10 @@ Mitigation: 建议使用标准标题与纯文本结构，避免表格/图片/文
 **Output Type(s):** [Text, Markdown, HTML, LaTeX, Guidance] <br>
 **Output Format:** [Markdown 评分诊断/JD 分析报告 + HTML/Markdown/LaTeX 简历 + Markdown 面试问答] <br>
 **Output Parameters:** [1D] <br>
-**Other Properties Related to Output:** [以 Markdown 为工作格式；HTML 简历供浏览器导出 PDF；评分报告、JD 分析、一页简历与面试问答落盘到 resume/ 目录。] <br>
+**Other Properties Related to Output:** [以 Markdown 为工作格式；HTML 简历供浏览器导出 PDF；按雇主版本（soe/internet/foreign）产出，文件名带版本后缀；评分报告、JD 分析、一页简历与面试问答落盘到 resume/ 目录。外企版默认全英文。] <br>
 
 ## Skill Version(s): <br>
-1.2.0 <br>
+2.0.0 <br>
 
 ## Ethical Considerations: <br>
 用户应评估本 skill 是否适合自身环境，使用前复核生成的简历与面试问答内容，不编造经历与数字，并在投递前按个人与组织的真实情况核对。简历涉及个人隐私信息，导出与分享时注意脱敏。评分仅作参考，不保证投递结果。 <br>

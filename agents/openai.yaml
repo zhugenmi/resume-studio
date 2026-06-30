@@ -13,17 +13,21 @@ capabilities:
   - ats_optimization
   - multi_format_export
   - interview_qa_prediction
+  - employer_variant_routing
 output_contract:
+  variant_suffix: "<variant> ∈ {soe, internet, foreign}, confirmed at Step 0"
   required:
-    - resume/resume.md
-    - resume/resume-diagnosis.md
-    - resume/resume.html
-    - resume/interview-qa.md
+    - resume/resume-<variant>.md
+    - resume/resume-diagnosis-<variant>.md
+    - resume/resume-<variant>.html
+    - resume/interview-qa-<variant>.md
   conditional:
-    - resume/jd-analysis.md
-    - resume/resume-one-page.md
+    - resume/jd-analysis-<variant>.md
+    - resume/resume-<variant>-one-page.md
+  batch_mode: "user explicitly requests all three variants → three sets produced, one diagnosis + one interview-qa per variant, not merged"
 references:
   - references/workflow.md
+  - references/employer-variants.md
   - references/scoring-rubric.md
   - references/audit-checklist.md
   - references/star-rewrite.md
@@ -34,7 +38,7 @@ references:
   - references/interview-qa.md
   - references/export-templates.md
   - references/privacy-redaction.md
-  - templates/professional.html
-  - templates/modern.html
-  - templates/minimal.html
-  - templates/academic.html
+  - templates/soe.html
+  - templates/internet.html
+  - templates/foreign.html
+  - references/resume-modules.md

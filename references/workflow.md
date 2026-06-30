@@ -8,25 +8,55 @@
 - **岗位匹配优先于通用正确**：用户提供 JD 时一切围绕 JD 取舍，写成"这个岗位愿意约面"的版本，而非大厂通用模板。
 - **评分要诚实**：不为讨好用户给虚高分——虚高分帮不了他过 HR 的 6 秒。
 
+## 版本维度
+
+简历按**目标雇主类型**分三版，各有不同评分标准、审计项、红旗、语言。版本定义见 `employer-variants.md`：
+
+| 版本 | 代号 | 语言 | 默认模板 |
+|------|------|------|---------|
+| 国企/银行版 | `soe` | 中文 | soe.html |
+| 私企/互联网版 | `internet` | 中文 | internet.html |
+| 外企版 | `foreign` | 英文 | foreign.html |
+
+版本维度与长度维度（详尽/标准/一行）正交——同一版内仍按 `resume-variants.md` 取长度。
+
 ## 六步闭环
 
 ```
-收集 → 评分诊断 → JD分析+筛选校验 → 重写 → 导出 → 验证+备面
+版本确认 → 收集 → 评分诊断 → JD分析+筛选校验 → 重写 → 导出 → 验证+备面
 ```
+
+### Step 0：版本确认
+
+确认目标雇主类型，选定 `soe` / `internet` / `foreign`。默认单版只生成该版；用户明说「三种都要」→ 批量模式（见下）。
+
+确认话术：
+```
+你的目标雇主是哪一类？
+1) 国企/银行（央企/国企/银行/事业单位）
+2) 私企/互联网（民营科技/互联网/创业）
+3) 外企（跨国/外资/海外岗）
+默认生成对应版本。需要三种都生成请说明。
+```
+
+外企版默认全英文。批量模式：顺序跑三遍 Step 1-6，产出三套 `resume-<variant>.*`，每版各一份诊断 + 各一份面试问答，不合并。
 
 ### Step 1：建立目标上下文
 
 确认：原始简历（PDF/文字/HTML/Markdown）或新项目经验；目标岗位或 JD；用户身份与目标（应届生/社招/转行/晋升失败/"投了没回音"）。
+确认用户身份与经历情况（应届/社招/转行、有无工作/项目经历），按 `resume-modules.md` 取舍模块——无该经历则删整段不留空标题。
 无 JD 时可做通用优化，但要说明：这只能提升"表达质量"，不能完成真正的"岗位匹配优化"。
 
 ### Step 2：评分与诊断
 
-读取 `references/scoring-rubric.md` 与 `references/audit-checklist.md`。
+读取 `references/scoring-rubric.md` 与 `references/audit-checklist.md`，并按选定版本读取 `references/employer-variants.md` 的 overlay（权重偏移 + 版本专属审计项 + 版本专属红旗）。
 
 - **100 分制评分**（5 维度：内容30/结构25/语言20/ATS15/影响力10）+ A+~F 等级，作为量化基线。
 - **30 秒初判**：一句直观结论——会不会让面试官继续往下看、最致命问题、最大潜在亮点。短、狠、准。
 - **三条核心标准**：首屏价值主张 / 经历=做了+结果带数字 / 6 秒匹配度。
 - **40+ 项审计清单**（8 大类）：联系信息/职业摘要/工作经历/教育/技能/语法/格式/ATS，逐类 ✅/⚠️/❌。
+
+评分按版本 overlay：维度权重按版本偏移，审计叠加版本专属项，红旗叠加版本专属红旗。版本代号写入诊断报告顶部。
 
 输出：分数 + 等级 + 三标准判定 + 八大类红黄绿表 + 前 3 大致命问题。**先把简历钉在分数上，再谈改。**
 
@@ -50,7 +80,7 @@
 
 ### Step 4：重写
 
-读取 `references/star-rewrite.md`。
+读取 `references/star-rewrite.md` 与 `references/employer-variants.md`。按版本侧重改写：soe 补政治面貌/籍贯/证书、强调稳定；internet 强量化强动词、JD 关键词命中；foreign 全英文 + action verbs + 删照片/年龄/婚否/籍贯。
 
 - **STAR 法则**改写每段经历（S 情境/T 任务/A 行动/R 结果），带强动词。
 - **项目先有上下文**：每段项目经历开头一句项目描述（系统定位+服务对象+业务问题），再写 bullet。
@@ -61,12 +91,12 @@
 
 ### Step 5：排版与多格式导出
 
-读取 `references/export-templates.md`。
+读取 `references/export-templates.md`。按版本默认模板与语言导出：soe→soe 中文，internet→internet 中文，foreign→foreign 全英文。文件名带版本后缀 `resume-<variant>.html`。
 
 - 工作格式 Markdown，最终转目标格式。
 - HTML 简约现代蓝白配色（主蓝 `#2563EB`），`print-color-adjust: exact`。
 - 「收紧/放宽」映射边距行距。
-- 5 格式（HTML/PDF/Markdown/LaTeX/Word）× 4 模板（professional/modern/minimal/academic）。
+- 5 格式（HTML/PDF/Markdown/LaTeX/Word）× 3 模板（soe/internet/foreign）。
 - PDF 用浏览器打印另存；不用 shell 生成，除非已配 headless 浏览器。
 
 ### Step 6：验证提升 + 备面
@@ -84,16 +114,18 @@
 
 | 文件 | 类型 | 何时生成 | 来源步骤 |
 |------|------|---------|---------|
-| `resume.md` | 必产物 | 每次必生成（Markdown 工作版，含详尽/标准/一行三版本，见 `resume-variants.md`） | Step 4 |
-| `resume-diagnosis.md` | 必产物 | 每次必生成（含 before 评分 + 三标准 + 八大类 + 红旗 + 致命问题；末尾含 Step 6 的 after 评分对照表） | Step 2 + Step 6 |
-| `resume.html` | 必产物 | 每次必生成（从 4 模板选一，见 `export-templates.md` + `templates/`） | Step 5 |
-| `interview-qa.md` | 必产物 | 每次必生成（标准分节见 `interview-qa.md`） | Step 6 |
-| `jd-analysis.md` | 条件产物 | **仅用户提供 JD 时**生成；无 JD 不生成（diagnosis 标注「通用优化模式」） | Step 3 |
-| `resume-one-page.md` | 条件产物 | **仅用户明确需要一页版时**生成（用户确认 / 主动询问后答应） | Step 6 |
+| `resume-<variant>.md` | 必产物 | 每次必生成（Markdown 工作版，含详尽/标准/一行三版本，见 `resume-variants.md`） | Step 4 |
+| `resume-diagnosis-<variant>.md` | 必产物 | 每次必生成（含 before 评分 + 三标准 + 八大类 + 版本专属审计 + 红旗 + 致命问题；末尾含 Step 6 的 after 评分对照表，同版对比） | Step 2 + Step 6 |
+| `resume-<variant>.html` | 必产物 | 每次必生成（按版本默认模板，见 `export-templates.md` + `templates/`） | Step 5 |
+| `interview-qa-<variant>.md` | 必产物 | 每次必生成（标准分节见 `interview-qa.md`） | Step 6 |
+| `jd-analysis-<variant>.md` | 条件产物 | **仅用户提供 JD 时**生成；无 JD 不生成（diagnosis 标注「通用优化模式」） | Step 3 |
+| `resume-<variant>-one-page.md` | 条件产物 | **仅用户明确需要一页版时**生成 | Step 6 |
 
-**文件名固定**：工作版一律 `resume.md`，禁止项目名变体（如 `resume-project-xxx.md`）。多个项目时合并进同一份 `resume.md` 的「项目经历」段。
+**版本后缀**：`<variant>` ∈ {`soe`, `internet`, `foreign`}，由 Step 0 确认。批量模式三套并存。
 
-**覆盖前备份**：`resume/` 已存在旧产物时，重跑前先询问用户「是否覆盖？建议先备份旧版到 `resume/archive-YYYYMMDD/`」。不要静默覆盖用户上次的产出。
+**文件名固定**：工作版一律 `resume-<variant>.md`，禁止项目名变体。多个项目时合并进同一份的「项目经历」段。
+
+**覆盖前备份**：`resume/` 已存在旧产物时，重跑前先询问用户「是否覆盖？建议先备份旧版到 `resume/archive-YYYYMMDD/`」。
 
 ## 默认输出结构
 
