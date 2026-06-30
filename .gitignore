@@ -1,0 +1,24 @@
+# 设计与计划文档
+docs/
+
+# Claude Code / Superpowers 本地配置与临时文件
+.claude/
+.superpowers/
+
+# skill 生成的简历/诊断/导出文件
+resume/
+
+# 编辑器与 IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
