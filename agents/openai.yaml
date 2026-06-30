@@ -2,3 +2,39 @@ interface:
   display_name: "Resume Studio"
   short_description: "Score, diagnose, rewrite and export job-seeker resumes with STAR + ATS + JD gap analysis"
   default_prompt: "Use $resume-studio to score my resume, diagnose gaps against a target JD, rewrite with STAR, and export to PDF."
+  system_prompt_ref: "../SKILL.md"
+  model_hint:
+    default: "gpt-4o-mini"
+    reasoning: "gpt-4o"
+capabilities:
+  - resume_scoring
+  - jd_gap_analysis
+  - star_rewrite
+  - ats_optimization
+  - multi_format_export
+  - interview_qa_prediction
+output_contract:
+  required:
+    - resume/resume.md
+    - resume/resume-diagnosis.md
+    - resume/resume.html
+    - resume/interview-qa.md
+  conditional:
+    - resume/jd-analysis.md
+    - resume/resume-one-page.md
+references:
+  - references/workflow.md
+  - references/scoring-rubric.md
+  - references/audit-checklist.md
+  - references/star-rewrite.md
+  - references/resume-variants.md
+  - references/jd-analysis.md
+  - references/red-flags.md
+  - references/one-page-resume.md
+  - references/interview-qa.md
+  - references/export-templates.md
+  - references/privacy-redaction.md
+  - templates/professional.html
+  - templates/modern.html
+  - templates/minimal.html
+  - templates/academic.html

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{姓名}} · 简历 · Modern</title>
+<style>
+  /* 模板：modern — 蓝白点缀、卡片化布局、图标装饰。适用：科技/创业/产品/市场 */
+  :root { --blue: #2563EB; --ink: #1f2937; --mute: #6b7280; --line: #e5e7eb; --tint: #f0f7ff; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    color: var(--ink); margin: 0; padding: 40px; background: #f9fafb; line-height: 1.65;
+  }
+  .page { max-width: 820px; margin: 0 auto; background: #fff; padding: 44px 52px; border: 1px solid var(--line); border-radius: 8px; }
+  .name { font-size: 28px; font-weight: 700; color: var(--blue); margin: 0; }
+  .role { color: var(--mute); font-size: 15px; margin: 2px 0 12px; }
+  .contact { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 12.5px; color: var(--mute); margin-bottom: 18px; padding-bottom: 14px; border-bottom: 2px solid var(--blue); }
+  .contact span::before { content: "▸ "; color: var(--blue); }
+  .summary {
+    font-size: 14px; color: var(--ink); background: var(--tint);
+    border-left: 4px solid var(--blue); padding: 12px 16px; margin: 0 0 20px; border-radius: 0 6px 6px 0;
+  }
+  h2 { font-size: 14px; color: var(--blue); margin: 22px 0 10px; letter-spacing: 0.5px; text-transform: uppercase; }
+  h2::before { content: "■ "; font-size: 10px; vertical-align: middle; }
+  .entry { margin: 12px 0; padding: 10px 14px; background: #fcfcfd; border: 1px solid #f1f5f9; border-radius: 6px; }
+  .entry-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; font-size: 14px; }
+  .entry-head .title { font-weight: 700; color: var(--ink); }
+  .entry-head .org { color: var(--blue); font-weight: 600; }
+  .entry-head .date { font-size: 12px; color: var(--mute); }
+  .entry-context { font-size: 13px; color: var(--mute); margin: 4px 0 6px; }
+  ul { margin: 4px 0; padding-left: 20px; }
+  li { font-size: 13.5px; margin: 5px 0; color: #374151; }
+  li b { color: var(--blue); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tag { background: #eef2ff; color: var(--blue); border-radius: 4px; padding: 2px 9px; font-size: 12px; }
+  .skills b { color: var(--blue); font-size: 13px; }
+  .skills { font-size: 13px; line-height: 2; }
+  .edu { font-size: 13.5px; }
+  @media print { body { padding: 0; background: #fff; } .page { border: none; padding: 32px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="name">{{姓名}}</div>
+  <div class="role">{{目标岗位}} · {{工作年限}}年经验</div>
+  <div class="contact">
+    <span>{{电话}}</span><span>{{邮箱}}</span><span>{{所在地}}</span><span>{{GitHub}}</span><span>{{LinkedIn}}</span>
+  </div>
+
+  <div class="summary">
+    <!-- 填充：价值主张 1-3 行 -->
+    {{价值主张：主导过高并发支付系统，接口延迟优化 75%，支撑日均 50 万笔交易}}
+  </div>
+
+  <h2>工作经历</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <span><span class="title">{{职位}}</span> · <span class="org">{{公司}}</span></span>
+      <span class="date">{{起止时间}}</span>
+    </div>
+    <p class="entry-context">{{项目/业务上下文}}</p>
+    <ul>
+      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+    </ul>
+  </div>
+
+  <h2>项目经历</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <span><span class="title">{{项目名}} · {{角色}}</span></span>
+      <span class="date">{{起止时间}}</span>
+    </div>
+    <p class="entry-context">{{一句话项目描述}}</p>
+    <ul>
+      <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+    </ul>
+  </div>
+
+  <h2>技能</h2>
+  <div class="skills">
+    <b>后端</b>：{{...}}<br>
+    <b>AI/LLM</b>：{{...}}<br>
+    <b>工程</b>：{{...}}
+  </div>
+  <div class="tags">
+    <!-- 填充：JD 硬技能关键词，ATS 命中用 -->
+    <span class="tag">{{关键词1}}</span><span class="tag">{{关键词2}}</span><span class="tag">{{关键词3}}</span>
+  </div>
+
+  <h2>教育背景</h2>
+  <div class="edu">{{学校}} · {{专业}} · {{学位}} · {{起止时间}}</div>
+
+</div>
+</body>
+</html>

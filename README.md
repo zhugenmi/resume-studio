@@ -26,14 +26,26 @@ resume-studio/
 ├── skill-card.md
 ├── agents/
 │   └── openai.yaml
+├── templates/                  # 4 份完整可填充 HTML 模板
+│   ├── professional.html       # 藏蓝衬线 — 金融/咨询/法律/医疗
+│   ├── modern.html             # 蓝白卡片 — 科技/创业/产品/市场
+│   ├── minimal.html            # 黑白密集 — 资深人士/工程师
+│   └── academic.html           # 正式衬线+出版物 — 高校/科研/博士
+├── examples/                   # 回归样例
+│   ├── sample-input.md         # 脱敏样例输入（应届生无量化简历 + JD）
+│   └── expected-diagnosis-structure.md  # 期望 diagnosis 结构（回归对照）
 └── references/
-    ├── scoring-rubric.md       # 100 分制评分维度、等级、扣分规则
+    ├── workflow.md             # 核心原则、六步流程、输出契约、DO NOT、说话风格
+    ├── scoring-rubric.md       # 100 分制评分 + 等级 + 扣分规则 + 校准样例
     ├── audit-checklist.md      # 40+ 项审计清单（8 大类）
     ├── star-rewrite.md         # STAR 改写公式、强动词表、项目描述模板
+    ├── resume-variants.md      # 详尽/标准/一行三长度版本取舍规则
     ├── jd-analysis.md          # JD 诊断、差距矩阵、ATS 关键词检查
     ├── red-flags.md            # 红旗识别（外包/玩具项目/跳槽/空窗/量化缺失）
     ├── one-page-resume.md      # 一页简历压缩规则与模板
-    └── export-templates.md     # 5 格式 × 4 模板导出细则
+    ├── interview-qa.md         # 面试问答预测标准分节与高危追问识别
+    ├── export-templates.md     # 5 格式 × 4 模板导出细则
+    └── privacy-redaction.md    # 分享/导出前的隐私脱敏规则
 ```
 
 ## 核心原则
@@ -114,16 +126,14 @@ Use $resume-studio to score my resume and diagnose gaps against a senior backend
 
 ## 输出位置
 
-所有产物输出到 `resume/` 目录：
+所有产物输出到 `resume/` 目录（详见 `references/workflow.md` 输出契约）：
 
-- `resume/resume.md` — Markdown 工作版
-- `resume/resume.html` — HTML 版（可浏览器导出 PDF）
-- `resume/resume-diagnosis.md` — 评分诊断报告
-- `resume/jd-analysis.md` — JD 分析报告
-- `resume/resume-one-page.md` — 一页简历（按需生成）
-- `resume/interview-qa.md` — 面试问答预测
+- **必产物**：`resume.md`（含详尽/标准/一行三版本）、`resume-diagnosis.md`（含 before/after 评分对照）、`resume.html`（4 模板选一）、`interview-qa.md`
+- **条件产物**：`jd-analysis.md`（仅用户提供 JD 时）、`resume-one-page.md`（仅用户明确需要一页版时）
 
-## 融合来源
+文件名固定 `resume.md`，禁止项目名变体。重跑覆盖前先备份到 `resume/archive-YYYYMMDD/`。
+
+## 参考
 
 本 skill 参考了以下开源 skill 的优点：
 

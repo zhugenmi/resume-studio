@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{姓名}} · CV · Academic</title>
+<style>
+  /* 模板：academic — 正式衬线、多页支持、含出版物/研究列表。适用：高校教职/科研/博士申请 */
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+  body {
+    font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, "Times New Roman", serif;
+    color: #1a202c; max-width: 820px; margin: 0 auto; padding: 48px 56px;
+    line-height: 1.75; background: #fff; font-size: 14px;
+  }
+  h1 { font-size: 24px; margin: 0 0 2px; text-align: center; letter-spacing: 1px; }
+  .affil { text-align: center; color: #2d3748; font-size: 14px; margin: 2px 0; font-style: italic; }
+  .contact { text-align: center; font-size: 12.5px; color: #4a5568; font-family: -apple-system, "PingFang SC", sans-serif; margin-bottom: 20px; }
+  .contact span + span::before { content: " · "; margin: 0 6px; }
+  h2 { font-size: 15px; margin: 22px 0 8px; border-bottom: 1px solid #1a202c; padding-bottom: 3px; letter-spacing: 0.5px; }
+  .entry { margin: 12px 0; }
+  .entry-head { font-family: -apple-system, "PingFang SC", sans-serif; font-size: 13.5px; margin-bottom: 3px; }
+  .entry-head .title { font-weight: 700; }
+  .entry-head .org { font-style: italic; color: #2d3748; }
+  .entry-head .date { float: right; color: #718096; font-size: 12.5px; }
+  .entry-context { font-size: 13.5px; color: #4a5568; margin: 0 0 6px; font-family: -apple-system, "PingFang SC", sans-serif; }
+  ul { margin: 4px 0; padding-left: 22px; }
+  li { font-family: -apple-system, "PingFang SC", sans-serif; font-size: 13.5px; margin: 4px 0; color: #2d3748; }
+  .pubs { font-family: -apple-system, "PingFang SC", sans-serif; font-size: 13px; }
+  .pubs li { margin: 8px 0; padding-left: 0; list-style: none; text-indent: -1.2em; padding-left: 1.2em; }
+  .pubs .authors { color: #4a5568; }
+  .pubs .venue { font-style: italic; color: #2d3748; }
+  .skills { font-family: -apple-system, "PingFang SC", sans-serif; font-size: 13.5px; line-height: 1.9; }
+  @media print { body { padding: 28px 36px; } }
+</style>
+</head>
+<body>
+
+<h1>{{姓名}}</h1>
+<div class="affil">{{现属机构 / 院系}}</div>
+<div class="contact">
+  <span>{{电话}}</span><span>{{邮箱}}</span><span>{{个人主页}}</span><span>{{Google Scholar / ORCID}}</span>
+</div>
+
+<h2>研究兴趣</h2>
+<p class="entry-context">
+  <!-- 填充：研究方向 1-2 行 -->
+  {{研究方向：例如「大模型智能体编排、检索增强生成、可信 AI」}}
+</p>
+
+<h2>教育背景</h2>
+<div class="entry">
+  <div class="entry-head">
+    <span class="title">{{学位}}</span> · <span class="org">{{学校}} · {{院系}}</span>
+    <span class="date">{{起止时间}}</span>
+  </div>
+  <p class="entry-context">导师：{{姓名}} · 研究方向：{{...}}{{可选：GPA / 排名}}</p>
+</div>
+
+<h2>研究/工作经历</h2>
+<div class="entry">
+  <div class="entry-head">
+    <span class="title">{{职位}}</span> · <span class="org">{{机构/实验室}}</span>
+    <span class="date">{{起止时间}}</span>
+  </div>
+  <p class="entry-context">{{项目/课题上下文}}</p>
+  <ul>
+    <li><b>{{强动词}}</b> {{动作 + 产物 + 结果}}</li>
+  </ul>
+</div>
+
+<h2>代表性论文 / 出版物</h2>
+<ul class="pubs">
+  <li>
+    <span class="authors">{{作者列表（通讯作者 * / 共同一作 †）}}</span>.
+    <span class="title">{{论文标题}}</span>.
+    <span class="venue">{{期刊/会议, 卷(期): 页, 年}}</span>.
+  </li>
+  <li>
+    <span class="authors">{{...}}</span>.
+    <span class="title">{{...}}</span>.
+    <span class="venue">{{...}}</span>.
+  </li>
+</ul>
+
+<h2>技能</h2>
+<div class="skills">
+  <b>研究方法</b>：{{...}}<br>
+  <b>编程/工具</b>：{{...}}<br>
+  <b>语言</b>：{{...}}
+</div>
+
+</body>
+</html>
