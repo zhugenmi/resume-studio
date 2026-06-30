@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Studio"
+  short_description: "Score, diagnose, rewrite and export job-seeker resumes with STAR + ATS + JD gap analysis"
+  default_prompt: "Use $resume-studio to score my resume, diagnose gaps against a target JD, rewrite with STAR, and export to PDF."
